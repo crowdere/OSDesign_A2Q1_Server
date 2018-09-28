@@ -26,12 +26,13 @@ public class EchoServer
         try
         {
           ServerSocket server = new ServerSocket(PORT);  
+          while(true)
+          {
             try (Socket client = server.accept()) 
             {
                 BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
                 PrintWriter out = new PrintWriter( new OutputStreamWriter(client.getOutputStream()));
-                out.flush();
-                
+
                 String received;
                 while(true)
                 {
@@ -52,7 +53,9 @@ public class EchoServer
             catch(SocketException e)
             {
                 System.out.println("Client " + client_id + " has disconnected!");
+                client_id = null;
             }
+          }
         }
         catch (IOException ioex)
         {
