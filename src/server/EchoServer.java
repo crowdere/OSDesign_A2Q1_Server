@@ -13,7 +13,7 @@ import java.net.SocketException;
 /**
  *
  * @author eddyc
- * @version 0.01
+ * @version 1.0
  * @description Opens a connection for the client to connect to. Echos back all details and 
  *              exits when the client terminates the connection.
  */
